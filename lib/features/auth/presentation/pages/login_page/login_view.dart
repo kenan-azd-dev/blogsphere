@@ -42,7 +42,10 @@ class _LogInViewState extends State<LogInView> {
                   children: [
                     Text(
                       'Log in',
-                      style: Theme.of(context).textTheme.displaySmall,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displaySmall!
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                     const Gap(32),
                     AuthField(
@@ -62,7 +65,8 @@ class _LogInViewState extends State<LogInView> {
                     ),
                     const Gap(16.0),
                     GestureDetector(
-                      onTap: () => Navigator.pushReplacementNamed(context, signUp),
+                      onTap: () =>
+                          Navigator.pushReplacementNamed(context, signUp),
                       child: RichText(
                         text: TextSpan(
                           text: 'Don\'t have an account yet? ',
