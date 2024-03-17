@@ -18,6 +18,7 @@ class BlogApp extends StatelessWidget {
       themeMode: context.read<ThemeProvider>().themeMode,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      onGenerateRoute: (settings) => Routing.generateRoute(settings),
       home: const SignUpPage(),
     );
   }
