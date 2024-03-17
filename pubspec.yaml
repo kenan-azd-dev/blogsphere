@@ -32,3 +32,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Mirador
+      fonts:
+        - asset: assets/fonts/Mirador-Bold.otf
+          weight: 700
+
+
