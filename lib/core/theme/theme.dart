@@ -18,7 +18,7 @@ class AppTheme {
       contentPadding: const EdgeInsets.all(27),
       border: _border(),
       enabledBorder: _border(),
-      focusedBorder: _border(AppColors.gradient3),
+      focusedBorder: _border(AppColors.primaryOrange),
       errorBorder: _border(AppColors.errorColor),
     ),
   );
@@ -29,7 +29,7 @@ class AppTheme {
       contentPadding: const EdgeInsets.all(27),
       border: _border(),
       enabledBorder: _border(),
-      focusedBorder: _border(AppColors.gradient3),
+      focusedBorder: _border(AppColors.primaryOrange),
       errorBorder: _border(AppColors.errorColor),
     ),
   );

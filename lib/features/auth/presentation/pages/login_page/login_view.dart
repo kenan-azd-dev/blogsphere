@@ -8,15 +8,14 @@ import '../../../../../core/core.dart';
 import '../../widgets/wide_button.dart';
 import '../../widgets/auth_field.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
+class LogInView extends StatefulWidget {
+  const LogInView({super.key});
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  State<LogInView> createState() => _LogInViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> {
-  final TextEditingController _nameController = TextEditingController();
+class _LogInViewState extends State<LogInView> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -25,7 +24,6 @@ class _SignUpViewState extends State<SignUpView> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    _nameController.dispose();
     super.dispose();
   }
 
@@ -43,15 +41,10 @@ class _SignUpViewState extends State<SignUpView> {
                 child: Column(
                   children: [
                     Text(
-                      'Sign up',
+                      'Log in',
                       style: Theme.of(context).textTheme.displaySmall,
                     ),
                     const Gap(32),
-                    AuthField(
-                      hintText: 'Name',
-                      controller: _nameController,
-                    ),
-                    const Gap(16.0),
                     AuthField(
                       hintText: 'Email',
                       controller: _emailController,
@@ -69,17 +62,17 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                     const Gap(16.0),
                     GestureDetector(
-                      onTap: () => Navigator.pushReplacementNamed(context, logIn),
+                      onTap: () => Navigator.pushReplacementNamed(context, signUp),
                       child: RichText(
                         text: TextSpan(
-                          text: 'Already have an account? ',
+                          text: 'Don\'t have an account yet? ',
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
                               ?.copyWith(color: Colors.grey),
                           children: [
                             TextSpan(
-                              text: 'Log In',
+                              text: 'Sign up',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium

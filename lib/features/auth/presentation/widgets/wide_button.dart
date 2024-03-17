@@ -18,7 +18,7 @@ class WideButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(395, 55),
-        backgroundColor: AppColors.gradient3,
+        backgroundColor: AppColors.primaryOrange,
         shadowColor: AppColors.transparentColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))
       ),
