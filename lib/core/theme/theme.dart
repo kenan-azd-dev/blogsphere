@@ -12,7 +12,9 @@ class AppTheme {
         borderRadius: BorderRadius.circular(18.0),
       );
 
-  static ThemeData darkTheme = ThemeData.dark().copyWith(
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    fontFamily: 'Lato',
     scaffoldBackgroundColor: AppColors.darkBackgroundColor,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
@@ -23,7 +25,9 @@ class AppTheme {
     ),
   );
 
-  static ThemeData lightTheme = ThemeData.light().copyWith(
+  static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
+    fontFamily: 'Lato',
     scaffoldBackgroundColor: AppColors.lightBackgroundColor,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
@@ -34,5 +38,3 @@ class AppTheme {
     ),
   );
 }
-
-
