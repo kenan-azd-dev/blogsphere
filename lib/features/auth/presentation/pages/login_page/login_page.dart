@@ -10,6 +10,7 @@ class LogInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //print(sl.get<String>(instanceName: 'baseUrl'));
     return const LogInView();
   }
 }
