@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 3rd Party Packages
-import 'package:provider/provider.dart';
 
 // Project Files
 import '../../core/core.dart';
