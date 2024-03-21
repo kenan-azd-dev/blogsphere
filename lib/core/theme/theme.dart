@@ -23,6 +23,9 @@ class AppTheme {
       focusedBorder: _border(AppColors.primaryOrange),
       errorBorder: _border(AppColors.errorColor),
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.darkBackgroundColor,
+    ),
   );
 
   static ThemeData lightTheme = ThemeData(
@@ -35,6 +38,9 @@ class AppTheme {
       enabledBorder: _border(),
       focusedBorder: _border(AppColors.primaryOrange),
       errorBorder: _border(AppColors.errorColor),
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.lightBackgroundColor,
     ),
   );
 }

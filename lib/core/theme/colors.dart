@@ -13,4 +13,5 @@ class AppColors {
   static const Color errorColor = Colors.redAccent;
 
   static const transparentColor = Colors.transparent;
+  static const greyColor = Colors.grey;
 }

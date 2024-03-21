@@ -3,7 +3,6 @@ import 'package:fpdart/fpdart.dart';
 
 // Project Files
 import '../../../../core/core.dart';
-import '../../../../core/network/connection_checker.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../data_source/auth_remote_data_source.dart';
 import '../models/user_model.dart';

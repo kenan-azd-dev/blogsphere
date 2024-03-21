@@ -1,4 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/theme_provider.dart';
 
 enum AppLogoStyle {
   markOnly,
@@ -20,6 +26,12 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String logoPath;
+    if (Theme.of(context).brightness == Brightness.dark) {
+      logoPath = 'assets/images/logo-dark.png';
+    } else {
+      logoPath = 'assets/images/logo-light.png';
+    }
     return SizedBox(
       height: _size! - 100,
       width: _size,
@@ -36,21 +48,23 @@ class AppLogo extends StatelessWidget {
                 ),
               );
             } else if (_style == AppLogoStyle.markOnly) {
-              return const Icon(
-                CupertinoIcons.globe,
-                size: 96,
+              return CircleAvatar(
+                radius: _size - 120,
+                backgroundColor: Colors.transparent,
+                backgroundImage: AssetImage(logoPath),
               );
             } else if (_style == AppLogoStyle.horizontal) {
-              return const Row(
+              return Row(
                 children: [
-                  Icon(
-                    CupertinoIcons.globe,
-                    size: 96,
+                  CircleAvatar(
+                    radius: _size - 120,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: AssetImage(logoPath),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8.0,
                   ),
-                  Text(
+                  const Text(
                     'BlogSphere',
                     style: TextStyle(
                       fontFamily: 'Mirador',
@@ -61,13 +75,14 @@ class AppLogo extends StatelessWidget {
                 ],
               );
             } else {
-              return const Column(
+              return Column(
                 children: [
-                  Icon(
-                    CupertinoIcons.globe,
-                    size: 96,
+                  CircleAvatar(
+                    backgroundImage: AssetImage(logoPath),
+                    backgroundColor: Colors.transparent,
+                    radius: _size - 120,
                   ),
-                  Text(
+                  const Text(
                     'BlogSphere',
                     style: TextStyle(
                       fontFamily: 'Mirador',
