@@ -1,10 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/theme_provider.dart';
 
 enum AppLogoStyle {
   markOnly,
@@ -33,68 +27,70 @@ class AppLogo extends StatelessWidget {
       logoPath = 'assets/images/logo-light.png';
     }
     return SizedBox(
-      height: _size! - 100,
+      height: _size!,
       width: _size,
-      child: FittedBox(
-        child: Builder(
-          builder: (context) {
-            if (_style == AppLogoStyle.textOnly) {
-              return const Text(
+      child: Builder(
+        builder: (context) {
+          if (_style == AppLogoStyle.textOnly) {
+            return const FittedBox(
+              child: Text(
                 'BlogSphere',
                 style: TextStyle(
                   fontFamily: 'Mirador',
                   fontWeight: FontWeight.w700,
                   fontSize: 48,
                 ),
-              );
-            } else if (_style == AppLogoStyle.markOnly) {
-              return CircleAvatar(
-                radius: _size - 120,
-                backgroundColor: Colors.transparent,
-                backgroundImage: AssetImage(logoPath),
-              );
-            } else if (_style == AppLogoStyle.horizontal) {
-              return Row(
+              ),
+            );
+          } else if (_style == AppLogoStyle.markOnly) {
+            return CircleAvatar(
+              radius: _size,
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage(logoPath),
+            );
+          } else if (_style == AppLogoStyle.horizontal) {
+            return FittedBox(
+              child: Row(
                 children: [
                   CircleAvatar(
-                    radius: _size - 120,
+                    radius: _size / 3,
                     backgroundColor: Colors.transparent,
                     backgroundImage: AssetImage(logoPath),
                   ),
                   const SizedBox(
-                    width: 8.0,
+                    width: 16.0,
                   ),
-                  const Text(
+                  Text(
                     'BlogSphere',
                     style: TextStyle(
                       fontFamily: 'Mirador',
                       fontWeight: FontWeight.w700,
-                      fontSize: 48,
+                      fontSize: _size / 2,
                     ),
                   ),
                 ],
-              );
-            } else {
-              return Column(
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(logoPath),
-                    backgroundColor: Colors.transparent,
-                    radius: _size - 120,
+              ),
+            );
+          } else {
+            return Column(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage(logoPath),
+                  backgroundColor: Colors.transparent,
+                  radius: _size / 4,
+                ),
+                Text(
+                  'BlogSphere',
+                  style: TextStyle(
+                    fontFamily: 'Mirador',
+                    fontWeight: FontWeight.w700,
+                    fontSize: _size / 5,
                   ),
-                  const Text(
-                    'BlogSphere',
-                    style: TextStyle(
-                      fontFamily: 'Mirador',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 48,
-                    ),
-                  ),
-                ],
-              );
-            }
-          },
-        ),
+                ),
+              ],
+            );
+          }
+        },
       ),
     );
   }

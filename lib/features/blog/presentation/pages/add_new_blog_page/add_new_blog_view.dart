@@ -12,9 +12,6 @@ import '../../bloc/blog_bloc.dart';
 import '../../widgets/blog_editor.dart';
 
 class AddNewBlogView extends StatefulWidget {
-  static route() => MaterialPageRoute(
-        builder: (context) => const AddNewBlogView(),
-      );
   const AddNewBlogView({super.key});
 
   @override

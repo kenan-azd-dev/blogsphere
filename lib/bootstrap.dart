@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 
 // Project Files
-import 'di/injection_container.dart';
-import './features/app/app_wrapper.dart';
-import './features/app/app_bloc_observer.dart';
+import './di/injection_container.dart';
+import './features/shared/app_wrapper.dart';
+import './features/shared/app_bloc_observer.dart';
 
 void bootstrap() {
   FlutterError.onError = (details) {

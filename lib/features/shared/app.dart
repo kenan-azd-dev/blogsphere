@@ -16,7 +16,7 @@ class BlogApp extends StatelessWidget {
     return MaterialApp(
       title: 'BlogSphere',
       debugShowCheckedModeBanner: false,
-      themeMode: context.read<ThemeProvider>().themeMode,
+      themeMode: context.watch<ThemeProvider>().themeMode,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       onGenerateRoute: (settings) => Routing.generateRoute(settings),
