@@ -3,6 +3,9 @@ part of 'injection_container.dart';
 final sl = GetIt.instance;
 
 Future<void> initDependencies() async {
+  _initAuth();
+  _initBlog();
+
   final sharedPrefs = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPrefs);
 
@@ -13,6 +16,12 @@ Future<void> initDependencies() async {
   final supabase = await Supabase.initialize(url: baseUrl, anonKey: apiKey);
 
   sl.registerLazySingleton(() => supabase.client);
+  
+  Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
+
+  sl.registerLazySingleton(
+    () => Hive.box(name: 'blogs'),
+  );
 
   // * Core * //
   sl.registerFactory(() => InternetConnection());
@@ -28,8 +37,6 @@ Future<void> initDependencies() async {
 
   // * Providers * //
   sl.registerSingleton<ThemeProvider>(ThemeProvider(prefs: sl()));
-
-  _initAuth();
 }
 
 void _initAuth() {
@@ -70,6 +77,47 @@ void _initAuth() {
         userLogInUseCase: sl(),
         currentUserUseCase: sl(),
         appUserCubit: sl(),
+      ),
+    );
+}
+
+void _initBlog() {
+  // Datasource
+  sl
+    ..registerFactory<BlogRemoteDataSource>(
+      () => BlogRemoteDataSourceImpl(
+        sl(),
+      ),
+    )
+    ..registerFactory<BlogLocalDataSource>(
+      () => BlogLocalDataSourceImpl(
+        sl(),
+      ),
+    )
+    // Repository
+    ..registerFactory<BlogRepository>(
+      () => BlogRepositoryImpl(
+        sl(),
+        sl(),
+        sl(),
+      ),
+    )
+    // Usecases
+    ..registerFactory(
+      () => UploadBlog(
+        sl(),
+      ),
+    )
+    ..registerFactory(
+      () => GetAllBlogs(
+        sl(),
+      ),
+    )
+    // Bloc
+    ..registerLazySingleton(
+      () => BlogBloc(
+        uploadBlog: sl(),
+        getAllBlogs: sl(),
       ),
     );
 }

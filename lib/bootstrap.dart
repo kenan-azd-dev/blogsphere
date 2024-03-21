@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 
 // Project Files
-import './injection_container.dart';
+import 'di/injection_container.dart';
 import './features/app/app_wrapper.dart';
 import './features/app/app_bloc_observer.dart';
 
