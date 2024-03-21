@@ -7,7 +7,6 @@ import '../../domain/repository/auth_repository.dart';
 import '../data_source/auth_remote_data_source.dart';
 import '../models/user_model.dart';
 
-
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final ConnectionChecker connectionChecker;
@@ -83,6 +82,19 @@ class AuthRepositoryImpl implements AuthRepository {
       final user = await fn();
 
       return right(user);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> logOut() async {
+    try {
+      if (!await (connectionChecker.isConnected)) {
+        return left(Failure('Not connected to a network.'));
+      }
+      await remoteDataSource.logOut();
+      return right(null);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }

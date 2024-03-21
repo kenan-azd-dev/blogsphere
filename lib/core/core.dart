@@ -15,6 +15,8 @@ export './usecase/usecase.dart';
 
 export './common/widgets/loader.dart';
 export './common/widgets/app_logo.dart';
+export './common/widgets/theme_list_tile.dart';
+export './common/widgets/about_list_tile.dart';
 
 export './utils/utils.dart';
 

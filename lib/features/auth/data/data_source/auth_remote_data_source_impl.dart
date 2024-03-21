@@ -77,4 +77,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw ServerException(message: e.toString());
     }
   }
+
+  @override
+  Future<void> logOut() async {
+    try {
+      await supabaseClient.auth.signOut(scope: SignOutScope.global);
+    } on AuthException catch (e) {
+      throw ServerException(
+        message: e.message,
+        statusCode: e.statusCode,
+      );
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
 }

@@ -14,6 +14,7 @@ import '../features/auth/data/repository/auth_repository_impl.dart';
 import '../features/auth/domain/repository/auth_repository.dart';
 import '../features/auth/domain/usecases/get_current_user_usecase.dart';
 import '../features/auth/domain/usecases/log_in_usecase.dart';
+import '../features/auth/domain/usecases/log_out_usecase.dart';
 import '../features/auth/domain/usecases/sign_up_usecase.dart';
 import '../features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import '../features/blog/data/data_source/local/blog_local_data_source.dart';

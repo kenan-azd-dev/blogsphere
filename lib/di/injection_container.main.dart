@@ -66,6 +66,11 @@ void _initAuth() {
       ),
     )
     ..registerFactory(
+      () => UserLogOutUseCase(
+        sl(),
+      ),
+    )
+    ..registerFactory(
       () => CurrentUserUseCase(
         sl(),
       ),
@@ -75,6 +80,7 @@ void _initAuth() {
       () => AuthBloc(
         userSignUpUseCase: sl(),
         userLogInUseCase: sl(),
+        userLogOutUseCase: sl(),
         currentUserUseCase: sl(),
         appUserCubit: sl(),
       ),
