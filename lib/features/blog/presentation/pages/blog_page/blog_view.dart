@@ -51,7 +51,6 @@ class _BlogViewState extends State<BlogView> {
                     style: AppLogoStyle.stacked,
                   ),
                 ),
-                Gap(32),
                 LogOutListTile(),
                 Divider(),
                 ThemeModeListTile(),
